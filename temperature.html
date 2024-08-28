@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature program</title>
+    <style>
+        *{
+            box-sizing:border-box;
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            display:flex;
+            justify-content: center;
+            place-items:center;
+            min-height:100vh;
+        }
+        .container{
+            width:400px;
+            background-color:gray;
+            border-radius:10px;
+            text-align:center;
+            height:370px;
+            box-shadow: 10px 10px 10px 10px black;    
+        }
+        .container .temp{
+            background-color: #4158D0;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            padding:10px;
+            border-radius:10px ;
+        }
+        .container .temp h1{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color:white;
+        }
+        .container .number{
+            padding:20px;
+        }
+        .container .number input{
+            border-radius:10px;
+            height:30px;
+            width:70%;
+            border:0;
+            outline: none;
+            text-align:center;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size:larger;
+            background-color: aqua;
+            
+            border-bottom:solid black;
+        }
+        .container .checkbox{
+            padding:10px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size:larger;
+            color:white;
+            font-size: 30px;
+        }
+        .container .checkbox input{
+            transform:scale(1.5);
+        }
+        .container .radio{
+            padding:10px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size:larger;
+            color:white;
+            font-size: 30px;
+        }
+        .container .radio input{
+            transform:scale(1.5);
+        }
+        .submit{
+            padding:10px;
+            
+            
+        }
+        .submit input{
+            height:30px;
+            width:70%;
+            border-radius:10px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size:larger;
+            background: #ee0979;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="temp">
+            <h1>Temperature calculation</h1>
+        </div>
+        <div class="number">
+            <input type="number" id="number" placeholder="0">
+        </div>
+        <div class="checkbox">
+            <input type="radio" id="toforenheit" name="hii">
+            <label for="toforenheit">celcius--->forenheit</label>
+        </div>
+        <div class="radio">
+            <input type="radio" id="tocelcius" name="hii">
+            <label for="tocelcius">forenheit-->celcius</label>
+        </div>
+        <div class="submit">
+            <input type="submit" onclick="Contain()" id="submit">
+        </div>
+        <div class="content">
+            <h1 id="content"></h1>
+        </div>
+        <script>
+            const UserNumber=document.getElementById("number");
+            const CtoF=document.getElementById("toforenheit");
+            const FtoC=document.getElementById("tocelcius");
+            const Content=document.getElementById("content");
+            let A;
+           
+            function Contain(){
+                A=Number(UserNumber.value);
+                if(CtoF.checked){
+                    A=A * 9/5 + 32+" degrees Farenheit";
+                 Content.textContent=A;  
+
+                }
+                else if(FtoC.checked){ 
+                    A=(A-32)*5/9+" degrees Celcius";
+                    Content.textContent=A;
+                }
+                else{
+                    Content.textContent="please you have to select it any option";
+                }
+
+            }
+
+        </script>
+    </div>
+    
+</body>
+</html>
